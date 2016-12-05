@@ -1,0 +1,150 @@
+# Codebook for Course Project - Getting and cleaning data
+Juan D Lara  
+December 4, 2016  
+
+## Project Description
+The goal is to prepare tidy data that can be used for later analysis. The raw data represent data collected from the accelerometers from the Samsung Galaxy S smartphone.
+
+##Study design and data processing
+
+###Collection of the raw data
+The data was collected from a group of 30 volunteers within an age bracket of 19-48 years. For more information check out the README.txt file inside the zip file.
+The data can be found at
+https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+
+###Notes on the original (raw) data 
+A full description is available at the site where the data was obtained:
+http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+
+##Creating the tidy datafile
+
+###Guide to create the tidy data file
+1. Download and unzip the dataset
+2. Read the data
+  - Read subject data
+  - Read activity data
+  - Read features column names
+  - Read features data
+  - Merging data
+3. Extract only the measurements on the mean and standard deviation for each measurement
+
+###Cleaning of the data
+1. Add descriptive activity names to name the activities in the data set
+2. Label appropriately the data set with descriptive variable names
+3. Creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+
+[See README.md]()
+
+##Description of the variables in the tidyData.txt file
+###General description
+
+This dataset contains 180 observations of 69 variables. It is sorted by subject and activity.
+
+###Variables
+
+The features selected for this dataset are either in time domain (denoted by the "time" prefix) or frequency domain (denoted by the "frequency" prefix).
+
+The acceleration signal was split into "Body" and "Gravity" signals, each of them the accelerometer and gyroscope ("Gyroscope" and "Accelerometer" in the variable name).
+
+The linear acceleration and angular velovity were derived in time to obtain Jerk signals (denoted as "Jerk").
+
+The signals denoted frequency-Body-Accelerometer-XYZ, frequency-Body-Accelerometer-Jerk-XYZ, frequency-Body-Gyroscope-XYZ, frequency-Body-Accelerometer-Jerk-Magnitude, frequency-Body-Gyroscope-Magnitude, frequency-Body-Gyroscope-Jerk-Magnitude were obtained using a Fast Fourier Transform (FFT).
+
+Please note that this dataset contains only the average feature value for each activity and each subject.
+
+### Overview of the variables
+
+**Variable Name**|**Original Name**|**Source File**|**Class**
+-----|-----|-----|-----
+subject|-|test/subject\_test.txt, train/subject\_train.txt|int
+activityDescription|-|activity\_labels.txt|Factor w/ 6 levels: WALKING, WALKING\_UPSTAIRS, WALKING\_DOWNSTAIRS, SITTING, STANDING, LAYING
+activity|-|test/y\_test.txt, train/y\_train.txt|num
+time-Body-Accelerometer-mean-X|tBodyAcc-mean()-X|test/x\_test.txt, train/x\_train.txt|num
+time-Body-Accelerometer-mean-Y|tBodyAcc-mean()-Y|test/x\_test.txt, train/x\_train.txt|num
+time-Body-Accelerometer-mean-Z|tBodyAcc-mean()-Z|test/x\_test.txt, train/x\_train.txt|num
+time-Body-Accelerometer-std-X|tBodyAcc-std()-X|test/x\_test.txt, train/x\_train.txt|num
+time-Body-Accelerometer-std-Y|tBodyAcc-std()-Y|test/x\_test.txt, train/x\_train.txt|num
+time-Body-Accelerometer-std-Z|tBodyAcc-std()-Z|test/x\_test.txt, train/x\_train.txt|num
+time-Gravity-Accelerometer-mean-X|tGravityAcc-mean()-X|test/x\_test.txt, train/x\_train.txt|num
+time-Gravity-Accelerometer-mean-Y|tGravityAcc-mean()-Y|test/x\_test.txt, train/x\_train.txt|num
+time-Gravity-Accelerometer-mean-Z|tGravityAcc-mean()-Z|test/x\_test.txt, train/x\_train.txt|num
+time-Gravity-Accelerometer-std-X|tGravityAcc-std()-X|test/x\_test.txt, train/x\_train.txt|num
+time-Gravity-Accelerometer-std-Y|tGravityAcc-std()-Y|test/x\_test.txt, train/x\_train.txt|num
+time-Gravity-Accelerometer-std-Z|tGravityAcc-std()-Z|test/x\_test.txt, train/x\_train.txt|num
+time-Body-Accelerometer-Jerk-mean-X|tBodyAccJerk-mean()-X|test/x\_test.txt, train/x\_train.txt|num
+time-Body-Accelerometer-Jerk-mean-Y|tBodyAccJerk-mean()-Y|test/x\_test.txt, train/x\_train.txt|num
+time-Body-Accelerometer-Jerk-mean-Z|tBodyAccJerk-mean()-Z|test/x\_test.txt, train/x\_train.txt|num
+time-Body-Accelerometer-Jerk-std-X|tBodyAccJerk-std()-X|test/x\_test.txt, train/x\_train.txt|num
+time-Body-Accelerometer-Jerk-std-Y|tBodyAccJerk-std()-Y|test/x\_test.txt, train/x\_train.txt|num
+time-Body-Accelerometer-Jerk-std-Z|tBodyAccJerk-std()-Z|test/x\_test.txt, train/x\_train.txt|num
+time-Body-Gyroscope-mean-X|tBodyGyro-mean()-X|test/x\_test.txt, train/x\_train.txt|num
+time-Body-Gyroscope-mean-Y|tBodyGyro-mean()-Y|test/x\_test.txt, train/x\_train.txt|num
+time-Body-Gyroscope-mean-Z|tBodyGyro-mean()-Z|test/x\_test.txt, train/x\_train.txt|num
+time-Body-Gyroscope-std-X|tBodyGyro-std()-X|test/x\_test.txt, train/x\_train.txt|num
+time-Body-Gyroscope-std-Y|tBodyGyro-std()-Y|test/x\_test.txt, train/x\_train.txt|num
+time-Body-Gyroscope-std-Z|tBodyGyro-std()-Z|test/x\_test.txt, train/x\_train.txt|num
+time-Body-Gyroscope-Jerk-mean-X|tBodyGyroJerk-mean()-X|test/x\_test.txt, train/x\_train.txt|num
+time-Body-Gyroscope-Jerk-mean-Y|tBodyGyroJerk-mean()-Y|test/x\_test.txt, train/x\_train.txt|num
+time-Body-Gyroscope-Jerk-mean-Z|tBodyGyroJerk-mean()-Z|test/x\_test.txt, train/x\_train.txt|num
+time-Body-Gyroscope-Jerk-std-X|tBodyGyroJerk-std()-X|test/x\_test.txt, train/x\_train.txt|num
+time-Body-Gyroscope-Jerk-std-Y|tBodyGyroJerk-std()-Y|test/x\_test.txt, train/x\_train.txt|num
+time-Body-Gyroscope-Jerk-std-Z|tBodyGyroJerk-std()-Z|test/x\_test.txt, train/x\_train.txt|num
+time-Body-Accelerometer-Magnitude-mean|tBodyAccMag-mean()|test/x\_test.txt, train/x\_train.txt|num
+time-Body-Accelerometer-Magnitude-std|tBodyAccMag-std()|test/x\_test.txt, train/x\_train.txt|num
+time-Gravity-Accelerometer-Magnitude-mean|tGravityAccMag-mean()|test/x\_test.txt, train/x\_train.txt|num
+time-Gravity-Accelerometer-Magnitude-std|tGravityAccMag-std()|test/x\_test.txt, train/x\_train.txt|num
+time-Body-Accelerometer-Jerk-Magnitude-mean|tBodyAccJerkMag-mean()|test/x\_test.txt, train/x\_train.txt|num
+time-Body-Accelerometer-Jerk-Magnitude-std|tBodyAccJerkMag-std()|test/x\_test.txt, train/x\_train.txt|num
+time-Body-Gyroscope-Magnitude-mean|tBodyGyroMag-mean()|test/x\_test.txt, train/x\_train.txt|num
+time-Body-Gyroscope-Magnitude-std|tBodyGyroMag-std()|test/x\_test.txt, train/x\_train.txt|num
+time-Body-Gyroscope-Jerk-Magnitude-mean|tBodyGyroJerkMag-mean()|test/x\_test.txt, train/x\_train.txt|num
+time-Body-Gyroscope-Jerk-Magnitude-std|tBodyGyroJerkMag-std()|test/x\_test.txt, train/x\_train.txt|num
+frequency-Body-Accelerometer-mean-X|fBodyAcc-mean()-X|test/x\_test.txt, train/x\_train.txt|num
+frequency-Body-Accelerometer-mean-Y|fBodyAcc-mean()-Y|test/x\_test.txt, train/x\_train.txt|num
+frequency-Body-Accelerometer-mean-Z|fBodyAcc-mean()-Z|test/x\_test.txt, train/x\_train.txt|num
+frequency-Body-Accelerometer-std-X|fBodyAcc-std()-X|test/x\_test.txt, train/x\_train.txt|num
+frequency-Body-Accelerometer-std-Y|fBodyAcc-std()-Y|test/x\_test.txt, train/x\_train.txt|num
+frequency-Body-Accelerometer-std-Z|fBodyAcc-std()-Z|test/x\_test.txt, train/x\_train.txt|num
+frequency-Body-Accelerometer-Jerk-mean-X|fBodyAccJerk-mean()-X|test/x\_test.txt, train/x\_train.txt|num
+frequency-Body-Accelerometer-Jerk-mean-Y|fBodyAccJerk-mean()-Y|test/x\_test.txt, train/x\_train.txt|num
+frequency-Body-Accelerometer-Jerk-mean-Z|fBodyAccJerk-mean()-Z|test/x\_test.txt, train/x\_train.txt|num
+frequency-Body-Accelerometer-Jerk-std-X|fBodyAccJerk-std()-X|test/x\_test.txt, train/x\_train.txt|num
+frequency-Body-Accelerometer-Jerk-std-Y|fBodyAccJerk-std()-Y|test/x\_test.txt, train/x\_train.txt|num
+frequency-Body-Accelerometer-Jerk-std-Z|fBodyAccJerk-std()-Z|test/x\_test.txt, train/x\_train.txt|num
+frequency-Body-Gyroscope-mean-X|fBodyGyro-mean()-X|test/x\_test.txt, train/x\_train.txt|num
+frequency-Body-Gyroscope-mean-Y|fBodyGyro-mean()-Y|test/x\_test.txt, train/x\_train.txt|num
+frequency-Body-Gyroscope-mean-Z|fBodyGyro-mean()-Z|test/x\_test.txt, train/x\_train.txt|num
+frequency-Body-Gyroscope-std-X|fBodyGyro-std()-X|test/x\_test.txt, train/x\_train.txt|num
+frequency-Body-Gyroscope-std-Y|fBodyGyro-std()-Y|test/x\_test.txt, train/x\_train.txt|num
+frequency-Body-Gyroscope-std-Z|fBodyGyro-std()-Z|test/x\_test.txt, train/x\_train.txt|num
+frequency-Body-Accelerometer-Magnitude-mean|fBodyAccMag-mean()|test/x\_test.txt, train/x\_train.txt|num
+frequency-Body-Accelerometer-Magnitude-std|fBodyAccMag-std()|test/x\_test.txt, train/x\_train.txt|num
+frequency-BodyBody-Accelerometer-Jerk-Magnitude-mean|fBodyBodyAccJerkMag-mean()|test/x\_test.txt, train/x\_train.txt|num
+frequency-BodyBody-Accelerometer-Jerk-Magnitude-std|fBodyBodyAccJerkMag-std()|test/x\_test.txt, train/x\_train.txt|num
+frequency-BodyBody-Gyroscope-Magnitude-mean|fBodyBodyGyroMag-mean()|test/x\_test.txt, train/x\_train.txt|num
+frequency-BodyBody-Gyroscope-Magnitude-std|fBodyBodyGyroMag-std()|test/x\_test.txt, train/x\_train.txt|num
+frequency-BodyBody-Gyroscope-Jerk-Magnitude-mean|fBodyBodyGyroJerkMag-mean()|test/x\_test.txt, train/x\_train.txt|num
+frequency-BodyBody-Gyroscope-Jerk-Magnitude-std|fBodyBodyGyroJerkMag-std()|test/x\_test.txt, train/x\_train.txt|num
+
+
+##Sources
+
+Data source. Human Activity Recognition Using Smartphones Data Set
+
+http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+
+The template used to create this document can be found at
+
+https://gist.github.com/JorisSchut/dbc1fc0402f28cad9b41
+
+David Hood's blog post about the assignment
+
+https://thoughtfulbloke.wordpress.com/2015/09/09/getting-and-cleaning-the-assignment/
+
+The course GitHub repository
+
+http://datasciencespecialization.github.io/getclean/
+
+The original assignment (link may be broken for some people)
+
+https://www.coursera.org/learn/data-cleaning/peer/FIZtT/getting-and-cleaning-data-course-project
